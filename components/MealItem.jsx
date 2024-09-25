@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
+    width: '100%'
   },
   buttonPressed: {
     opacity: 0.5,
