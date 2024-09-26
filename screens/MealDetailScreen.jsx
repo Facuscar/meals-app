@@ -4,11 +4,25 @@ import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
 import Subtitle from "../components/Subtitle";
 import List from "../components/List";
+import { useLayoutEffect } from "react";
+import IconButton from "../components/IconButton";
 
-const MealDetailScreen = ({ route }) => {
+const MealDetailScreen = ({ route, navigation }) => {
   const mealId = route.params.mealId
 
   const { imageUrl, title, ingredients, steps, affordability, complexity, duration } = MEALS.find((meal) => meal.id === mealId);
+
+  const handleHeaderPress = () => {
+    console.log("Tapped")
+  }
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <IconButton icon={"star"} color={"white"} onPress={handleHeaderPress} />
+      }
+    })
+  }, [])
 
   return (
     <ScrollView>
